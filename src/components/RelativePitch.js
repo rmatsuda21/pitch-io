@@ -53,6 +53,7 @@ class RelativePitch extends Component {
 
     render() {
         return (
+
         <div className="App">
             <p className="App-intro">Score: {this.state.score}</p>	
             <p className="App-intro">Note: {this.state.question}</p>				
