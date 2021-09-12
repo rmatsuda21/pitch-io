@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from './Nav';
 
 class RelativePitch extends Component {
     constructor(props) {
@@ -17,8 +18,8 @@ class RelativePitch extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Test</h1>
+            <div className="main">
+                <Nav/>
             </div>
         )
     }
