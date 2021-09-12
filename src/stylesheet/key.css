@@ -1,4 +1,20 @@
 .key:hover *{
     cursor: pointer;
-    fill: black;
+    fill: var(--glaucous);
+}
+
+.active *{
+    fill: var(--glaucous) !important;
+    stroke: var(--royal-blue-dark);
+    stroke-width: 5px;
+    /* transform: scale(0.98) translate(15px, 15px); */
+}
+
+.keyboard {
+    position: absolute;
+
+    top: 450px;
+    left: 50%;
+
+    transform: translate(-50%, 0);
 }

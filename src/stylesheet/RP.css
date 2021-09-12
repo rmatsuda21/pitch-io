@@ -1,0 +1,37 @@
+.button {
+    width: 200px;
+    height: 200px;
+
+    border-radius: 15%;
+
+    background-color: var(--french-sky-blue);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.button a{
+    font-size: 25px;
+    color: black;
+}
+
+.button img {
+    margin: 15px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.buttonHolder {
+    display: flex;
+    flex-direction: row;
+
+    margin: 0 auto;
+
+    width: 600px;
+    justify-content: space-between;
+}
