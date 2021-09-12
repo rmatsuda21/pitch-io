@@ -44,7 +44,7 @@ class Chords extends Component {
     }
 
     note2Char(note) {
-        var selectedNote = this.state.reference + parseInt(note);
+        var selectedNote = this.state.reference.base + parseInt(note);
 
         if(this.state.selectedNote === null) return ["",""];
 
