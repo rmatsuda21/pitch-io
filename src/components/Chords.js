@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
 import MIDISounds from 'midi-sounds-react';
 
-function Chord(base, variant) {
-    this.base = base;
-    this.variant = variant;
-}
-
 class Chords extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             instrument: 3,
-            reference: Chord(60, "major"),
+            reference: {
+                base: 60, 
+                variant: "major"
+            },
             curStage: 1,
             score: 0,
-            question: Chord(0, "major"),
+            question: {
+                base: 0, 
+                variant: "major"
+            },
             octave: 4,
         }
 
@@ -23,6 +24,8 @@ class Chords extends Component {
             "major": [-12, -8, -5, 0, 4, 7, 12],
             "minor": [-12, -9, -5, 0, 3, 7, 12],
         }
+
+        this.playChord = this.playChord.bind(this);
     }
 
     componentDidMount() {
@@ -30,13 +33,16 @@ class Chords extends Component {
     }
 
     loadNewStage() {
-        var newQuestion = Chord(this.question.base, this.question.variant);
-        while (newQuestion === this.state.question) {
+        var newQuestion = {
+            base: -1, 
+            variant: -1
+        }
+        do {
             newQuestion.base = Math.floor(Math.random() * 25) - 12 + this.state.reference.base;
             newQuestion.variant = Math.floor(Math.random() * 2) ? "major" : "minor";
-        }
+        } while (newQuestion.base === this.state.question.base && newQuestion.variant === this.state.question.variant);
 
-        this.playNote(newQuestion.base, newQuestion.variant);
+        this.playChord(newQuestion);
         this.setState({question: newQuestion});
     }
 
@@ -45,10 +51,11 @@ class Chords extends Component {
 
         // Calculate notes in chord that fit on keyboard
         // NOTE: assumes that keyboard is centered around reference - only works for C rn
+        var base = this.state.reference.base;
         var notes = this.chordIntervals[chord.variant]
             .map(function(value) {return value + chord.base;})
             .filter(function(value) {
-                return (value >= this.state.reference.base - 12) && (value <= this.state.reference.base + 12)
+                return (value >= base - 12) && (value <= base + 12)
             });
 
         this.midiSounds.playChordNow(this.state.instrument, notes, 2);
