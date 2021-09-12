@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Rowdies&display=swap');
+
+:root {
+  --royal-blue-dark: #001c55ff;
+  --glaucous: #5e7ce2ff;
+  --french-sky-blue: #92b4f4ff;
+  --beau-blue: #cfdee7ff;
+  --bittersweet: #ff6b6bff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Rowdies', cursive;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main {
+  background-color: var(--royal-blue-dark);
+
+  width: 100vw;
+  height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.stripes {
   display: flex;
+  position: absolute;
+
+  top: 50%;
+  transform: translate(0, -50%);
+
+  height: 350px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.stripe {
+  height: 17px;
+  width: 100vw;
+
+  background-color: var(--bittersweet);
+
+  left: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+
+  transform: translate(-50%, -50%);
+
+  color: var(--french-sky-blue);
+  font-size: 150px;
+
+  pointer-events: none;
+
+  text-shadow:
+  -15px -15px 0 var(--royal-blue-dark),
+   0   -15px 0 var(--royal-blue-dark),
+   15px -15px 0 var(--royal-blue-dark),
+   15px  0   0 var(--royal-blue-dark),
+   15px  15px 0 var(--royal-blue-dark),
+   0    15px 0 var(--royal-blue-dark),
+  -15px  15px 0 var(--royal-blue-dark),
+  -15px  0   0 var(--royal-blue-dark);
 }
+
+.clef {
+  z-index: 2;
+  position: absolute;
+  left: 5%;
+} 
