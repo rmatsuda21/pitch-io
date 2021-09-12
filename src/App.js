@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import RelativePitch from './components/RelativePitch';
 import { Route, Link } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
+          <RelativePitch/>
         </a>
       </header>
     </div>
