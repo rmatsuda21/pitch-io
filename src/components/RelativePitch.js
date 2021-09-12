@@ -91,7 +91,6 @@ class RelativePitch extends Component {
             <div className="buttonHolder">
                 <Button onClick={this.playNote.bind(this, this.state.reference)} txt={"Play Reference"} img={volume}/>
                 <Button onClick={this.playNote.bind(this, this.state.question)} txt={"Play Mystery"} img={question}/>
-                <Button onClick={this.onKeyClickHandler} txt={"Play Mystery"} img={question}/>
             </div>
             
             <Keyboard ref={this.keyRef} onKeyClickHandler={this.onKeyClickHandler}/>
