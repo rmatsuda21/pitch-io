@@ -90,12 +90,12 @@ class RelativePitch extends Component {
             newQuestion = Math.floor(Math.random() * 25) - 12 + this.state.reference;
         } while (newQuestion === this.state.question);
 
-        this.playNote(newQuestion);
+        this.playNote(newQuestion, 2);
         this.setState({question: newQuestion});
     }
 
-    playNote(note) {
-		this.midiSounds.playChordNow(this.state.instrument, [note], 2);
+    playNote(note, time) {
+		this.midiSounds.playChordNow(this.state.instrument, [note], time);
 	}
 
     onKeyClickHandler(note) {
@@ -121,13 +121,13 @@ class RelativePitch extends Component {
     }
 
     onIncorrectKey() {
-        this.playNote(20);
+        this.playNote(20, 1);
         this.keyRef.current.highlightIncorrect(this.state.selectedNote);
         // this.setState({score: this.state.score - 1});
     }
 
     playReference() {
-        this.playNote(this.state.reference);
+        this.playNote(this.state.reference, 2);
         this.keyRef.current.startBlink(0);
     }
 
@@ -148,7 +148,7 @@ class RelativePitch extends Component {
             
             <div className="buttonHolder">
                 <Button onClick={this.playReference} txt={"Play Reference"} img={volume}/>
-                <Button onClick={this.playNote.bind(this, this.state.question)} txt={"Play Mystery"} img={question}/>
+                <Button onClick={this.playNote.bind(this, this.state.question, 2)} txt={"Play Mystery"} img={question}/>
             </div>
             
             <Keyboard ref={this.keyRef} onKeyClickHandler={this.onKeyClickHandler}/>
