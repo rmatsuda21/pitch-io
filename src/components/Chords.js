@@ -120,11 +120,11 @@ class Chords extends Component {
             }
         }
 
-        this.playChord(newQuestion);
+        this.playChord(newQuestion, 2);
         this.setState({question: newQuestion, notes: notes.slice(startIdx,startIdx + 3)});
     }
 
-    playChord(chord) {
+    playChord(chord, time) {
         chord.variant = ((chord.variant in this.chordIntervals) ? chord.variant : "major");
 
         // Calculate notes in chord that fit on keyboard
@@ -141,7 +141,7 @@ class Chords extends Component {
             }
         }
 
-        this.midiSounds.playChordNow(this.state.instrument, notes.slice(startIdx,startIdx + 3), 2);
+        this.midiSounds.playChordNow(this.state.instrument, notes.slice(startIdx,startIdx + 3), time);
 	}
 
     onKeyClickHandler(note) {
@@ -152,7 +152,8 @@ class Chords extends Component {
         if(this.state.selectedNote === null) return;
         console.log(this.state.selectedNote + this.state.reference, this.state.question);
         if (parseInt(this.state.selectedNote) + parseInt(this.state.reference.base) === this.state.question.base ||
-            parseInt(this.state.selectedNote) + parseInt(this.state.reference.base) + 12 === this.state.question.base) {
+            parseInt(this.state.selectedNote) + parseInt(this.state.reference.base) + 12 === this.state.question.base||
+            parseInt(this.state.selectedNote) + parseInt(this.state.reference.base) - 12 === this.state.question.base) {
             this.onCorrectKey();
         }
         else {
@@ -170,10 +171,11 @@ class Chords extends Component {
     onIncorrectKey() {
         // this.setState({score: this.state.score - 1});
         this.keyRef.current.highlightIncorrect(this.state.selectedNote);
+        this.playChord({base: 20, variant: "minor"}, 1);
     }
 
     playReference() {
-        this.playChord(this.state.reference);
+        this.playChord(this.state.reference, 2);
         this.keyRef.current.startBlink(0);
     }
 
@@ -193,7 +195,7 @@ class Chords extends Component {
             
             <div className="buttonHolder">
                 <Button onClick={this.playReference} txt={"Play Reference"} img={volume}/>
-                <Button onClick={this.playChord.bind(this, this.state.question)} txt={"Play Mystery"} img={question}/>
+                <Button onClick={this.playChord.bind(this, this.state.question, 2)} txt={"Play Mystery"} img={question}/>
             </div>
             <span>{this.state.selectedNote}</span>
             
