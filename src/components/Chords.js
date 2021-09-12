@@ -35,7 +35,7 @@ class Chords extends Component {
     loadNewStage() {
         var newQuestion = {
             base: -1, 
-            variant: -1 
+            variant: -1
         }
         do {
             newQuestion.base = Math.floor(Math.random() * 25) - 12 + this.state.reference.base;
