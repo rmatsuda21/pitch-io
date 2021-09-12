@@ -14,7 +14,9 @@ class Nav extends Component {
                     <div className="stripe s5"></div>
                 </div>
                 
-                <span className="title">Pitch.io</span>
+                <div className="title" onClick={() => {
+                    window.location.href = '/';
+                }}>Pitch.io</div>
             </div>
         )
     }

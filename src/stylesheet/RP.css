@@ -11,6 +11,12 @@
 
     align-items: center;
     justify-content: center;
+
+    transition: transform .25s linear;
+}
+
+.button:hover {
+    transform: scale(1.01);
 }
 
 .button a{
@@ -34,6 +40,8 @@
 
     width: 600px;
     justify-content: space-between;
+
+    overflow: visible;
 }
 
 .inputs {
@@ -88,6 +96,11 @@
     border-radius: 5%;
 
     background-color: var(--bittersweet);
+    transition: filter .25s ease-out;
+}
+
+.submitBtn:hover {
+    filter: brightness(1.1);
 }
 
 .score {
@@ -102,4 +115,22 @@
     top: 75%;
 
     margin: 15px;
+}
+
+.textYes {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    left: 50%;
+    top: 25%;
+
+    color: var(--glaucous);
+    font-size: 50px;
+
+    transform: translate(-50%, 0);
 }

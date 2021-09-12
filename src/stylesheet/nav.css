@@ -22,6 +22,9 @@
 
 .nav .title {
     position: absolute;
+    cursor: pointer;
+
+    z-index: 2;
     top: 99px;
     left: 200px;
 
@@ -30,7 +33,7 @@
     color: var(--french-sky-blue);
     font-size: 52px;
 
-    pointer-events: none;
+    /* pointer-events: none; */
 
     text-shadow:
     -6px -6px 0 var(--royal-blue-dark),
@@ -41,6 +44,10 @@
         0    6px 0 var(--royal-blue-dark),
     -6px  6px 0 var(--royal-blue-dark),
     -6px  0   0 var(--royal-blue-dark);
+}
+
+.nav .title:hover {
+    background-color: white;
 }
 
 .nav .clef {

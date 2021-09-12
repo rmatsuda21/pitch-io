@@ -147,6 +147,8 @@ class RelativePitch extends Component {
         <div className="main" style={{paddingTop:'200px'}}>
             <Nav/>
             
+            <div className="textYes"><h1>Play your heart out!</h1>
+            <h4 style={{fontSize:'25px', marginTop:'15px'}}>Hint: your keyboard is your friend :D</h4></div>
             <SandboxKeyboard ref={this.keyRef} onKeyClickHandler={this.onKeyClickHandler}/>
             {/* <p className="App-intro">Score: {this.state.score}</p>	
             <p className="App-intro">Note: {this.state.question}</p>				
