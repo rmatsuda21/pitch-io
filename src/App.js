@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+
+import Landing from './components/Landing.js';
+import RelativePitch from './components/RelativePitch';
+import Chords from './components/Chords';
+import Landing2 from './components/Landing2';
+import Sandbox from './components/Sandbox';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+          <Switch>
+            <Route exact path="/" component={Landing2}/>
+            <Route path="/rp" component={RelativePitch}/>
+            <Route path="/chords" component={Chords}/>
+            <Route path="/sandbox" component={Sandbox}/>
+          </Switch>
+            
+    </Router>
   );
 }
 

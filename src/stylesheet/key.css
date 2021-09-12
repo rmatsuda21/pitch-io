@@ -1,0 +1,48 @@
+.key:hover *{
+    cursor: pointer;
+    fill: var(--glaucous);
+}
+
+.active *{
+    fill: var(--glaucous) !important;
+    stroke: var(--royal-blue-dark);
+    stroke-width: 5px;
+    /* transform: scale(0.98) translate(15px, 15px); */
+}
+
+.wrong *{
+    fill: var(--bittersweet) !important;
+    stroke: var(--royal-blue-dark);
+    stroke-width: 5px;
+}
+
+.keyboard {
+    position: absolute;
+
+    top: 450px;
+    left: 50%;
+
+    transform: translate(-50%, 0);
+}
+
+.blink *{
+    animation: blink .26s ease-in-out;
+}
+
+@keyframes blink {
+    0% {
+        stroke: var(--royal-blue-dark);
+        stroke-width: 0px;
+        fill: currentColor;
+    }
+    50% {
+        stroke: var(--royal-blue-dark);
+        stroke-width: 8px;
+        fill: var(--glaucous);
+    }
+    100% {
+        stroke: var(--royal-blue-dark);
+        stroke-width: 0px;
+        fill: currentColor;
+    }
+}
