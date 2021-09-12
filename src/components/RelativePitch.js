@@ -20,10 +20,10 @@ class RelativePitch extends Component {
     }
 
     loadNewStage() {
-        var newQuestion = this.state.question;
-        while (newQuestion === this.state.question) {
+        var newQuestion = -1;
+        do {
             newQuestion = Math.floor(Math.random() * 25) - 12 + this.state.reference;
-        }
+        } while (newQuestion === this.state.question);
 
         this.playNote(newQuestion);
         this.setState({question: newQuestion});
@@ -53,7 +53,6 @@ class RelativePitch extends Component {
 
     render() {
         return (
-
         <div className="App">
             <p className="App-intro">Score: {this.state.score}</p>	
             <p className="App-intro">Note: {this.state.question}</p>				
