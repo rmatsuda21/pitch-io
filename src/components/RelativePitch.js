@@ -20,6 +20,7 @@ class RelativePitch extends Component {
         return (
             <div className="main">
                 <Nav/>
+                <h1>HIIIII</h1>
             </div>
         )
     }

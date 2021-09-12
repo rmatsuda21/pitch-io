@@ -1,0 +1,13 @@
+.card {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    margin-top: 143px;
+    
+}
+.cardbox{
+    flex: 1;
+}
+.icon {
+    height: 100px;
+}
