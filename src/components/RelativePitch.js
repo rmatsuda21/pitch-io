@@ -101,12 +101,8 @@ class RelativePitch extends Component {
             {/* <p><button href="/" onClick={this.playNote.bind(this, this.state.reference)}>Reference Note</button></p>
             <p><button href="/" onClick={this.playNote.bind(this, this.state.question)}>Question Note</button></p> */}
             <p><button href="/" onClick={this.onKeyClickHandler.bind(this, 0)}>Guess</button></p>
-<<<<<<< HEAD
-            <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />	
-=======
             <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[this.state.instrument]} />	
             <hr/>
->>>>>>> 87a1a64a33cf883fd4628576a850d3675fcedcf2
         </div>
         )
     }
