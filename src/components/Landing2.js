@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 import { BrowserRouter as Router, Link} from 'react-router-dom'
-import {Card} from "./Card"
+
+import '../stylesheet/landing.css';
+
+import relative from './RP.svg';
+import chord from './Chord.svg';
+import clef from './singleTreble.svg';
 
 
 class Landing2 extends Component {
@@ -20,29 +25,24 @@ class Landing2 extends Component {
     }
 
     render() {
+        const Button = (props) => { return(
+            <div className="bigButton" onClick={props.onClick}>
+                <img src={props.img}></img>
+                <a>{props.title}</a>
+                <span>{props.txt}</span>
+            </div>
+        )};
+            
         return (
             <>
-                <div className="main">
+                <div className="main" style={{paddingTop:'200px'}}>
                     <Nav/>
-                    <Card 
-                        icon="./RP.svg" 
-                        title="Relative Pitch" 
-                        text="Train your relative pitch" 
-                        link="rp" 
-                    />
-                    <Card 
-                        icon="./Chord.svg" 
-                        title="Chord" 
-                        text="How well do you know your chords?" 
-                        link="chord" 
-                    />
-                    <Card 
-                        icon="./clef.svg" 
-                        title="Intervals" 
-                        text="How far is the interval?" 
-                        link="interval" 
-                    />
-
+                    <div className="heading">Train your musical skills</div>
+                    <div className="bigButtonHolder">
+                    <Button onClick={() => {window.location.href='/rp';}} title={"Relative Pitch"} txt={"Train your relative pitch"} img={relative}/>
+                    <Button onClick={() => {window.location.href='/chords';}} title={"Chords"} txt={"How well can you recognize your chords?"} img={chord}/>
+                    <Button onClick={() => {window.location.href='/sandbox';}} title={"Sandbox"} txt={"Learn your scales and chords in an interractive sandbox"} img={clef}/>
+                    </div>
 
                 </div>
             </>
