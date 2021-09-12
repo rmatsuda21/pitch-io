@@ -1,68 +1,28 @@
 import React, { Component } from 'react';
-import MIDISounds from 'midi-sounds-react';
+import Nav from './Nav';
+import Keyboard from './Keyboard'
 
 class RelativePitch extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            instrument: 3,
-            reference: 60,
-            curStage: 1,
-            score: 0,
-            question: 0,
-            octave: 4,
-        }
-    }
-
-    componentDidMount() {
-        this.loadNewStage();
-    }
-
-    loadNewStage() {
-        var newQuestion = this.state.question;
-        while (newQuestion === this.state.question) {
-            newQuestion = Math.floor(Math.random() * 25) - 12 + this.state.reference;
+            "instrument": "hi",
         }
 
-        this.playNote(newQuestion);
-        this.setState({question: newQuestion});
+        this.increment = this.increment.bind();
     }
 
-    playNote(note) {
-		this.midiSounds.playChordNow(this.state.instrument, [note], 2);
-	}
+    increment() {
 
-    onKeyClickHandler(note) {
-        //if (note === this.state.question) {
-            this.onCorrectKey();
-        // }
-        // else {
-        //     this.onIncorrectKey();
-        // }
-    }
-
-    onCorrectKey() {
-        this.setState({score: this.state.score + 1});
-        this.loadNewStage();
-    }
-
-    onIncorrectKey() {
-        this.setState({score: this.state.score - 1});
     }
 
     render() {
         return (
-
-        <div className="App">
-            <p className="App-intro">Score: {this.state.score}</p>	
-            <p className="App-intro">Note: {this.state.question}</p>				
-            <p><button href="/" onClick={this.playNote.bind(this, this.state.reference)}>Reference Note</button></p>
-            <p><button href="/" onClick={this.playNote.bind(this, this.state.question)}>Question Note</button></p>
-            <p><button href="/" onClick={this.onKeyClickHandler.bind(this, 0)}>Guess</button></p>
-            <MIDISounds ref={(ref) => (this.midiSounds = ref)} appElementName="root" instruments={[3]} />	
-            <hr/>
-        </div>
+            <div className="main">
+                <Nav/>
+                <Keyboard/>
+            </div>
         )
     }
 }; export default RelativePitch;
