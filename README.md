@@ -1,6 +1,7 @@
-# Getting Started with Pitch.io
+# What is Pitch.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Have you ever wanted to have perfect pitch, or at least something close to it? Do you want to become better a better musician? Pitch.io helps you train relative pitch and chord identification to help you with all of your music goals!
+
 
 ## Setup
 
