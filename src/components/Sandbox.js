@@ -95,7 +95,7 @@ class RelativePitch extends Component {
     }
 
     playNote(note) {
-		this.midiSounds.playChordNow(this.state.instrument, [note], 2);
+		this.midiSounds.playChordNow(this.state.instrument, [note], 1);
 	}
 
     onKeyClickHandler(note) {
